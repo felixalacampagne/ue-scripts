@@ -75,7 +75,7 @@ doc.write("\n" + lyric + "\n");
 }
 
 // NB This is a copy of UE_lyricsearch.js, since I don't see a way to call 
-// a JS from another JS... updats to one should be include in the other...
+// a JS from another JS... updates to one should be include in the other...
 function getlyricssearchstr(doc)
 {
    // These are Perl regexps used by the UE search engine and are not compatible
