@@ -1,5 +1,9 @@
 // WARNING. This should only be run after removing
 // cases where the Title (or some other field!) is merged into the first line of the lyric
+
+// Write the clipboard content into the current lyric, move to the next lyric and
+// copy the next search query to the clipboard.
+// 
 var debug=false;  // Set to true to run in test mode
 
 function log(msg)
