@@ -1,3 +1,4 @@
+// ue_scripts\UE_lyric2clpb.js
 // WARNING. This should only be run after removing
 // cases where the Title (or some other field!) is merged into the first line of the lyric
 var debug=false;  // Set to true to run in test mode
