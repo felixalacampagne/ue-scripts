@@ -25,6 +25,7 @@ lyric = lyric.replace(/^\t\t*/gm, "");
 lyric = lyric.replace(/^  */gm, "");
 //lyric = lyric.replace(/\r/gm, "");
 lyric = lyric.replace(/\x19/gm, "'"); // ascii 19 -
+lyric = lyric.replace(/^.*[Cc]horus.*\n+/gm, "");
 lyric = lyric.replace(re, "\n\n");
 return lyric
 }
@@ -86,7 +87,7 @@ var songre = /<song>[\s\S]*?<title>([\s\S]*?)<\/title>[\s\S]*?<lyric>([\s\S]*?)<
       {
          // title on newline as UE output window only allow selection of entire line
          // which messes up searching for the title
-        log("NO Match:#n" + origtitle);
+        log("NO Match:\n" + origtitle);
       }
     }
 
