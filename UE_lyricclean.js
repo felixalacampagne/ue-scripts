@@ -38,7 +38,10 @@ var repata = [
    "^Title *:.*$",
    "^Album *:.*$",
    "^Length *:.*$",
-   "^encoding:.*$"
+   "^encoding:.*$",
+   "[\\[(].*[Cc]horus.*[\\])][\\r\\n][\\r\\n]*",
+   "\\[Verse.*\\][\\r\\n][\\r\\n]*",
+   "\\[x\\d+\\]"
    ];
 // Written by: - <\lyric
 // 
@@ -48,7 +51,11 @@ var repata = [
 // normal Title match
    doc.gotoLine(1,1);
    doc.findReplace.replace("(Title *:.*[a-z!?])([A-Z])", "\\1\\n\\2");
-doc.findReplace.replace("\\bi([ ,';:.]|\\b)", "I\\1");
+   doc.findReplace.replace("\\bi([ ,';:.]|\\b)", "I\\1");
+   doc.findReplace.replace("&#8217;", "'");
+   doc.findReplace.replace("&#8216;", "'");
+   
+
 var i=0;
 for(i=0; i<repata.length;i++)
 {
