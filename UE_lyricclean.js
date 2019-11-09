@@ -55,7 +55,10 @@ var repata = [
    doc.findReplace.replace("\\bi([ ,';:.]|\\b)", "I\\1");
    doc.findReplace.replace("&#8217;", "'");
    doc.findReplace.replace("&#8216;", "'");
-   
+   doc.findReplace.replace(" \\.mp3", ".mp3");
+   doc.findReplace.replace("  *\\.flac", ".flac");
+   // Hex 0x19
+   doc.findReplace.replace("", "'");
 
 var i=0;
 for(i=0; i<repata.length;i++)
