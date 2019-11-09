@@ -58,7 +58,7 @@ var repata = [
    doc.findReplace.replace(" \\.mp3", ".mp3");
    doc.findReplace.replace("  *\\.flac", ".flac");
    // Hex 0x19
-   doc.findReplace.replace("", "'");
+   doc.findReplace.replace("\\x19", "'");
 
 var i=0;
 for(i=0; i<repata.length;i++)
