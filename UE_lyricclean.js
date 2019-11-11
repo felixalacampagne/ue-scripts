@@ -41,7 +41,7 @@ var repata = [
    "^encoding:.*$",
    "[\\[(].*[Cc]horus.*[\\])][\\r\\n][\\r\\n]*",
    "\\[Verse.*\\][\\r\\n][\\r\\n]*",
-   "\\[x\\d+\\]",
+   "[(\\[]x\\d+[\\])]",
    "\\[.*?\\]",
    "[\\x01-\\x08\\x0E-\\x19]"  \\ remove any remaining control codes - keep CRLF and tab!
    ];
