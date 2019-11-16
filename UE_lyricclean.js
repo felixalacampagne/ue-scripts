@@ -41,8 +41,9 @@ var repata = [
    "^encoding:.*$",
    "[\\[(].*[Cc]horus.*[\\])][\\r\\n][\\r\\n]*",
    "\\[Verse.*\\][\\r\\n][\\r\\n]*",
-   "\\[x\\d+\\]",
-   "\\[.*?\\]"
+   "[(\\[]x\\d+[\\])]",
+   "\\[.*?\\]",
+   "[\\x01-\\x08\\x0E-\\x19]"  \\ remove any remaining control codes - keep CRLF and tab!
    ];
 // Written by: - <\lyric
 // 
@@ -57,8 +58,9 @@ var repata = [
    doc.findReplace.replace("&#8216;", "'");
    doc.findReplace.replace(" \\.mp3", ".mp3");
    doc.findReplace.replace("  *\\.flac", ".flac");
-   // Hex 0x19
    doc.findReplace.replace("\\x19", "'");
+   doc.findReplace.replace(" \\x13", ","); // seems to be a hyphen, but I prefer to use commas
+   
 
 var i=0;
 for(i=0; i<repata.length;i++)
