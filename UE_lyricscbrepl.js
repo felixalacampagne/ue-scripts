@@ -116,6 +116,7 @@ function getlyricssearchstr(doc)
    if(matcharr != null)
    {
       trackname = matcharr[1];
+      trackname = trackname.replace(/ \(.*\)/, "");
       log("Found trackname: " + trackname);
    }
    else
