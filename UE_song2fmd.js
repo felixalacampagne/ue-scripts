@@ -1,15 +1,8 @@
 // UE_song2fmd.js
 
-// Not sure how to do this. So first break it down.
+// Takes the multi song lyric clipboard output from an "azlyricgrabber" and applies
+// the lyrics to the current "filemetadata" document.
 
-// - Copy clipboard to variable. The songs are put on the clipboard by the perl script
-// - divide songs into individual songs with title and lyric
-// - maybe make a list of the fmd normalised titles and the location in the document?
-// - maybe copy the fmd document into a JS variable
-// - loop through indvidual songs
-//    - normalise the song title
-//    - scan the fmd document for a title matching the normalised song title
-//    - replace the fmd lyric with the song lyric
 
 function log(msg)
 {
