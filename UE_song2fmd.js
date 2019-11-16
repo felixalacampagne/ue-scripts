@@ -1,7 +1,9 @@
 // UE_song2fmd.js
 
 // Takes the multi song lyric clipboard output from an "azlyricgrabber" and applies
-// the lyrics to the current "filemetadata" document.
+// the lyrics to the current "filemetadata" document. Various translations are
+// applied to the lyrics to clean them - really the same manipulations used for
+// lyricbrepl should be applied.
 
 
 function log(msg)
