@@ -47,18 +47,14 @@ var songre = /<song>[\s\S]*?<title>([\s\S]*?)<\/title>[\s\S]*?<lyric>([\s\S]*?)<
       var title = normalise(origtitle);
       var lyric = matches[2];
 
-      //<name>01 Packt Like Sardines in a Crushd Tin Box.mp3</name>
-      var fmdre = new RegExp(/<name>\d{2,2} (.*?)\..*?<\/name>/gi);
+      // Better chance of matching against the title, which is now present in the flactagger file
+      var fmdre = new RegExp(/<title>(.*?)<\/title>/gi);
       var fmdmatches;
       var titidx = -1;
       //log("Searching FDM for " + title);
       while (fmdmatches = fmdre.exec(fmd))
       {
         var fmdtitle = normalise(fmdmatches[1]);
-
-
-
-        //if(titidx > -1)
         if(fmdtitle === title)
         {
           titidx = fmdmatches.index;
@@ -66,6 +62,28 @@ var songre = /<song>[\s\S]*?<title>([\s\S]*?)<\/title>[\s\S]*?<lyric>([\s\S]*?)<
           break;
         }
       }
+      
+      // Old way: try to match against the filename
+      if(titidx == -1)
+      {
+         //<name>01 Packt Like Sardines in a Crushd Tin Box.mp3</name>
+         fmdre = new RegExp(/<name>\d{2,2} (.*?)\..*?<\/name>/gi);
+         while (fmdmatches = fmdre.exec(fmd))
+         {
+           var fmdtitle = normalise(fmdmatches[1]);
+           //if(titidx > -1)
+           if(fmdtitle === title)
+           {
+             titidx = fmdmatches.index;
+             //log("Found match in FMD: " + title + " idx: " + titidx);
+             break;
+           }
+         }
+      }
+      
+      
+      
+      
       if(titidx > -1)
       {
         //log("Found match in FMD: " + title + " idx: " + titidx);
