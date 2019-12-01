@@ -43,7 +43,7 @@ var repata = [
    "\\[Verse.*\\][\\r\\n][\\r\\n]*",
    "[(\\[]x\\d+[\\])]",
    "\\[.*?\\]",
-   "[\\x01-\\x08\\x0E-\\x19]"  \\ remove any remaining control codes - keep CRLF and tab!
+   "[\\x01-\\x08\\x0E-\\x19]"  // remove any remaining control codes - keep CRLF and tab!
    ];
 // Written by: - <\lyric
 // 
