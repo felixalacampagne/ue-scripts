@@ -43,12 +43,12 @@ if(matcharr != null)
 {
    trackname = matcharr[1];
    trackname = trackname.replace(/ \(.*\)/, "");
-   log("Found trackname: " + trackname);
+   log("Found title in name: " + trackname);
 }
 else
 {
-   log("Track name not found");
-   return;
+   log("Title not found in name");
+
 }
 
 
@@ -65,7 +65,22 @@ if(matcharr != null)
 else
 {
    log("Artist not found");
-   return;
+ 
+}
+
+// Find <artist>Van Morrison</artist>
+var titleregex = "<title>(.*)</title>";
+doc.findReplace.find(titleregex);
+seltxt = doc.selection;
+matcharr = seltxt.match(titleregex);
+if(matcharr != null)
+{
+   trackname = matcharr[1];
+   log("Found title: " + artist);
+}
+else
+{
+   log("Title not found");
 }
 
 
