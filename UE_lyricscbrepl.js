@@ -74,7 +74,16 @@ var re = new RegExp("\\n\\n\\n+", "mg");
 lyric = lyric.replace(/^\t\t*/gm, "");
 lyric = lyric.replace(/^  */gm, "");
 lyric = lyric.replace(/\r/gm, "");
-lyric = lyric.replace(/\x19/gm, "'"); // ascii 19 - 
+
+// TIP: To figure out the 'real' value of the bad character copy it from the browser 
+// into a Unicode editor page and then view with hex editor. NB the 00 byte is the second byte of the pair
+lyric = lyric.replace(/\u2019/gm, "'");  // Unicode right apostrophe
+
+
+// This is ineffective since the codes causing the problems are Unicode, I think.
+lyric = lyric.replace(/[\x01-\x09\x0B\x0C\x0E-\x1F\x80-\xFF]/gm, ""); 
+
+
 lyric = lyric.replace(re, "\n\n");
 doc.write("\n" + lyric + "\n");
 }
