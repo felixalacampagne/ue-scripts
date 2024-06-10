@@ -21,7 +21,7 @@ function genep(clip)
 // yet the pattern is a match. 
 // Aaahhhaaa: it works as expected when '$' is added at the end
 //var pat = /(.* \dx(\d{1,2}) +(.*?))(\..+)*$/
-var pat = /(.* \dx(\d{1,2})(?: +(.*?)){0,1})(\..+)*$/
+var pat = /(.* \d{1,2}x(\d{2,4})(?: +(.*?)){0,1})(\..+)*$/
 
 // This also works, but the above seems more reasonable...
 //var pat = /(.* \dx(\d{1,2}) +([^.]*))(\..+)*/
